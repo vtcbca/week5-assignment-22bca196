@@ -51,14 +51,14 @@ cur.execute("""create trigger if not exists updatedata
 
 def updaterecord(cd):
     newcon=int(input("Enter new Contact Number:"))
-    cur.execute(f"Update contact set contact={newcon} where cid={cd};")
+    cur.execute("Update contact set contact={newcon} where cid={cd};")
 
 def deleterecord(cd):
-    cur.execute(f"delete from contact where cid={cd}")
+    cur.execute("delete from contact where cid={cd}")
 
 
 def searchrecord(cd):
-    cur.execute(f"select * from contact where cid={cd}")
+    cur.execute("select * from contact where cid={cd}")
     row=cur.fetchall()
     print(row)
 
@@ -77,11 +77,11 @@ deleterecord(3)
 cur.execute("select * from contact")
 row=cur.fetchall()
 for i in row:
-    print(f"\nID:{i[0]}\nFname:{i[1]}\nLname:{i[2]}\nContact:{i[3]}\nEmail:{i[4]}\ncity:{i[5]}")
+    print("\nID:{i[0]}\nFname:{i[1]}\nLname:{i[2]}\nContact:{i[3]}\nEmail:{i[4]}\ncity:{i[5]}")
 
 cur.execute("select * from details_log")
 row1=cur.fetchall()
 print(row1)
 for i in row1:
-    print(f"\nFname:{i[0]}\nLname:{i[1]}\nNew-contact:{i[2]}\nOld-Contact:{i[3]}\nDatetime:{i[4]}\nOperation:{i[5]}")
+    print("\nFname:{i[0]}\nLname:{i[1]}\nNew-contact:{i[2]}\nOld-Contact:{i[3]}\nDatetime:{i[4]}\nOperation:{i[5]}")
 
